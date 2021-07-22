@@ -18,7 +18,7 @@ Notice. Changeing the height of the map will cause loss in resolution, how much 
 * Using -b 16 on a 8bit heightmap will not work.
 	
 	
-Example usage.
+Example usage.<br/>
 Assume you have a terrain that is 100 meters in height and you want to add a sea depth of 50 meter.<br/>
 This means you need to use -a 100 and -d 50<br/>
 	
