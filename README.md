@@ -26,8 +26,13 @@ This means you need to use -a 100 and -d 50<br/>
 
 Next when importing the modified heightmap. you need to set the new height to 150 meters.<br/>
 Also, you should move the terrain down -50 on the Y axis in the Trasform, if you want the sea level to be at 0 meter.<br/>
-	
-	
+
+* -i input file,  The name of the unity heightmap.
+* -o output file, The name of the new generated heightmap.
+* -b bit mode,    8bit or 16bit heightmap.
+* -a altitude,    Height of the terrain.
+* -d depth,       The depth to add to the heightmap.
+
 Compile code with:<br/>
 **gcc unity_terrain_raiser.c -o utr**<br/>
 
