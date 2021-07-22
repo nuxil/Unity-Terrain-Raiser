@@ -2,7 +2,7 @@
 	
 This program is designed to read a unity terrain heightmap file (terrain.raw) directly.<br/>
 The program will raises the terrain based on the user input.<br/>
-Normally terrains are created near the lowest level possible,<br/>which in effect prevents you from lowering the terrain.<br/>
+Normally terrains are created near the lowest level possible, which in effect prevents you from lowering the terrain.<br/>
 To overcome this problem, the program will modify the colors to reflect the desired height change.<br/>
 	
 This program supports both 8bit and 16bit heightmaps exported from unity.<br/>
