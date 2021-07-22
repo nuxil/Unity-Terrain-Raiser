@@ -20,7 +20,7 @@
 	Assume you have a terrain that is 100 meters in height and you want to add a sea depth of 50 meter.
 	This means you need to use -a 100 and -d 50
 	
-	[b]utr.exe -i example_16bit.raw -o new_example_16bit.raw -b 16 -a 100 -d 50[/b]
+	utr.exe -i example_16bit.raw -o new_example_16bit.raw -b 16 -a 100 -d 50
 	
 	Next when importing the modified heightmap. you need to set the new height to 150 meters.
 	Also. you should move the terrain down -50 on the Y axis in the Trasform, if you want the sea level to be at 0 meter.
