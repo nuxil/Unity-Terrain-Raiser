@@ -19,4 +19,4 @@
 	Compile code with:
 	gcc unity_terrain_raiser.c -o utr
 
-![Image description]https://github.com/nuxil/Unity-Terrain-Raiser/blob/main/unity.gif
+![Image description](https://github.com/nuxil/Unity-Terrain-Raiser/blob/main/unity.gif)
