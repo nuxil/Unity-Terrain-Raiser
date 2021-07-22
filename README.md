@@ -9,7 +9,7 @@ This program supports both 8bit and 16bit heightmaps exported from unity.<br/>
 When exporting a heightmap in unity, the following settings are required.<br/>
 
 * Depth       : 16 bit or 8 bit , Your choice
-* Byte Order  : Windows (Little-endian)
+* **Byte Order  : Windows (Little-endian)**
 * Flip        : Your choice
 	
 Notice. Changeing the height of the map will cause loss in resolution, how much depends on your settings!.
