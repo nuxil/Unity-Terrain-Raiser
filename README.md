@@ -28,7 +28,7 @@ Next when importing the modified heightmap. you need to set the new height to 15
 Also, you should move the terrain down -50 on the Y axis in the Trasform, if you want the sea level to be at 0 meter.<br/>
 	
 	
-Compile code with:
-**gcc unity_terrain_raiser.c -o utr**
+Compile code with:<br/>
+**gcc unity_terrain_raiser.c -o utr**<br/>
 
 ![Image description](https://github.com/nuxil/Unity-Terrain-Raiser/blob/main/unity.gif)
