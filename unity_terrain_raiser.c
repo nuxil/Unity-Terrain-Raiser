@@ -63,10 +63,7 @@ void ShowHelp(char *prog) {
 */
 bool ParseCmd(int argc, char**argv, sHeightMap *heightmap) {
 	
-	if (argc != 11) {
-		ShowHelp(argv[0]);
-		return 0;
-	}
+	if (argc != 11) { return 0; }
 
 	static struct option long_options[] =  {
 		{"alt",      required_argument, 0, 'a'},
@@ -79,6 +76,7 @@ bool ParseCmd(int argc, char**argv, sHeightMap *heightmap) {
 	
 	int c;
 	int option_index = 0;
+
 	// loop over all of the options
 	while ((c = getopt_long(argc, argv, "a:b:d:i:o:", long_options, &option_index)) != -1) {
 
@@ -87,6 +85,15 @@ bool ParseCmd(int argc, char**argv, sHeightMap *heightmap) {
 			// ---------------------------------------
 			// altitude
 			case 'a': {
+				
+				// Simple validation..
+				for (int i = 0; i < strlen(optarg); i++) {
+					if (!isdigit(optarg[i])) { 
+						printf("Error: The -a argument needs to be a desimal number\n");
+						return 0; 
+					}
+				}
+				
 				heightmap->alt = strtol(optarg, NULL, 10);
 				if (heightmap->alt <= 0) {
 					printf("Error: The -a argument needs to be greater than 0\n");
@@ -97,6 +104,15 @@ bool ParseCmd(int argc, char**argv, sHeightMap *heightmap) {
 			// ---------------------------------------
 			// bitmode, 8 bit or 16 bit.
 			case 'b': {
+				
+				// Simple validation..
+				for (int i = 0; i < strlen(optarg); i++) {
+					if (!isdigit(optarg[i])) { 
+						printf("Error: The -b argument needs to be a desimal number\n");
+						return 0; 
+					}
+				}				
+
 				heightmap->bitmode = strtol(optarg, NULL, 10);   
 				if (!((heightmap->bitmode == 8) || (heightmap->bitmode == 16))) {
 					printf("Error: The -b Flag needs to be: -b 8 or -b 16\n");
@@ -107,6 +123,15 @@ bool ParseCmd(int argc, char**argv, sHeightMap *heightmap) {
 			// ---------------------------------------
 			// depth.
 			case 'd': {
+
+				// Simple validation..
+				for (int i = 0; i < strlen(optarg); i++) {
+					if (!isdigit(optarg[i])) { 
+						printf("Error: The -d argument needs to be a desimal number\n");
+						return 0; 
+					}
+				}						
+				
 				heightmap->depth = strtol(optarg, NULL, 10);
 				if (heightmap->depth < 0) {
 					printf("Error: The -d argument needs to be greater than 0\n");
@@ -138,10 +163,8 @@ bool ParseCmd(int argc, char**argv, sHeightMap *heightmap) {
 			} break;			
 
 			// ---------------------------------------
-			case '?': {} break;
-			default: {
-				abort();
-			}
+			case '?': {return 0;} break;
+			default: { return 0; }
 		}
 	} 
 	return 1;
@@ -284,9 +307,10 @@ int main(int argc, char**argv) {
 	
 	sHeightMap heightmap;
 
-	if (! ParseCmd(argc, argv, &heightmap)) return 1;
-		
-	printf("\nNew height setting for Unity:%i\n\n", heightmap.alt+heightmap.depth);
+	if (! ParseCmd(argc, argv, &heightmap)) {
+		ShowHelp(argv[0]);
+		return 1;
+	}
 	
 	printf("Reading heightmap.\n");
 	if (!ReadUnityMap(&heightmap))  { return 1;}
@@ -299,6 +323,7 @@ int main(int argc, char**argv) {
 	
 	CleanUp(&heightmap);
 	printf("Done, map is ready for import in unity!.\n");
+	printf("\nNew height setting for Unity:%i\n\n", heightmap.alt+heightmap.depth);
 	
 	return 0;
 }
